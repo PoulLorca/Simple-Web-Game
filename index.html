@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Scripts-->
+    <script src="./js/main.js"></script>
+
+    <title>Gotta Catch 'Em All!</title>
+</head>
+
+<body>
+    <h1>Choose one to start the game! 🔥🌊🌱</h1>
+
+
+    <section id="select-animal">
+        <h2>Choose one:</h2>
+
+        <label for="waramel">Waramel</label>
+        <input type="radio" name="animal" id="waramel" value="waramel">
+
+        <label for="shelpecker">Shelpecker</label>
+        <input type="radio" name="animal" id="shelpecker" value="shelpecker">
+
+        <label for="magmeleon">Magmeleon</label>
+        <input type="radio" name="animal" id="magmeleon" value="magmeleon">
+        
+        <!--
+        Waramel -> Water
+        Shelpecker -> Grass
+        Magmeleon -> Fire
+        
+        Kangatle->Water Fire
+        Dragepi->Water Grass
+        Parriot->Grass Fire-->
+        
+        <button id="btnSelectAnimal">Select</button>
+
+    </section>
+
+    <section id="selectAttack">
+        <p>Your <span id="playerAnimal"></span> has <span>3</span> lives</p>
+        <p>Your enemy has <span>3</span> lives</p>
+
+        <p>
+            <button id="btnFire">Fire 🔥</button>
+            <button id="btnWater">Water 🌊</button>
+            <button id="btnGrass">Grass 🌱</button>
+        </p>
+    </section>
+
+    <section id="messages">
+        <p>You are used Fire - Your enemy Used Grass - Congrats You win 🎉</p>
+    </section>
+
+    <section id="restart">
+        <button id="btnRestart">Restart</button>
+    </section>
+
+</body>
+
+</html>
