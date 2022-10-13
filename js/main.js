@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", ()=>{
     
     let animals = ["Waramel","Shelpecker","Magmeleon"];
-    let attacks = ["Fire","Water","Grass"];
+    let attacks = ["Fire🔥","Water🌊","Grass🌱"];
     
     let btnSelectAnimal  = document.getElementById('btnSelectAnimal');    
 
@@ -51,20 +51,21 @@ document.addEventListener("DOMContentLoaded", ()=>{
     /*Select attack*/
     btnFire.addEventListener('click',()=>{              
         human.attack = attacks[0];
-        computer.attack = randomAttack();
-        showdata();        
+        computer.attack = randomAttack();               
+        Combat();
+        
     })    
 
     btnWater.addEventListener('click',()=>{              
         human.attack = attacks[1];
-        computer.attack = randomAttack();
-        showdata();        
+        computer.attack = randomAttack();        
+        Combat();
     })    
 
     btnGrass.addEventListener('click',()=>{              
         human.attack = attacks[2];
-        computer.attack = randomAttack();
-        showdata();        
+        computer.attack = randomAttack();        
+        Combat();
     })    
 
     function randomAttack(){
@@ -72,9 +73,32 @@ document.addEventListener("DOMContentLoaded", ()=>{
         return attacks[indexComputer];
     }
 
-    function showdata(){
-        console.log(human);
-        console.log(computer);
+    function Combat(){
+        if (!human.animal || !computer.animal){
+            alert("First choose an animal");            
+            return; //Finish execution
+        }
+        let result;
+        if(human.attack == computer.attack){
+            result =  "Draw 😐"
+        } else if(human.attack == attacks[0] && computer.attack == attacks[2]){
+            result = "You win 👍"            
+        }else if (human.attack == attacks[1] && computer.attack == attacks[0]){
+            result = "You win 👍"
+        }else if (human.attack == attacks[2] && computer.attack == attacks[1]){
+            result = "You win 👍"
+        }else{
+            result = "You lose 👎"        
+        }
+
+        printAttack(human.attack, computer.attack, result);
+    }
+
+
+    function printAttack(humanAttack, computerAttack, result){
+        let text = document.createElement('p');
+        text.innerHTML = `You are used ${humanAttack} - Your enemy Used ${computerAttack} - Result: ${result}`  //- Congrats You win 🎉
+        document.getElementById("message").appendChild(text);
     }
 
 })
