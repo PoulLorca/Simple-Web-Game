@@ -20,13 +20,13 @@
         <h2>Choose one:</h2>
 
         <label for="waramel">Waramel</label>
-        <input type="radio" name="animal" id="waramel" value="waramel">
+        <input type="radio" name="animal" id="waramel" value=0>
 
         <label for="shelpecker">Shelpecker</label>
-        <input type="radio" name="animal" id="shelpecker" value="shelpecker">
+        <input type="radio" name="animal" id="shelpecker" value=1>
 
         <label for="magmeleon">Magmeleon</label>
-        <input type="radio" name="animal" id="magmeleon" value="magmeleon">
+        <input type="radio" name="animal" id="magmeleon" value=2>
         
         <!--
         Waramel -> Water
@@ -42,8 +42,8 @@
     </section>
 
     <section id="selectAttack">
-        <p>Your <span id="playerAnimal"></span> has <span>3</span> lives</p>
-        <p>Your enemy has <span>3</span> lives</p>
+        <p>Your <span id="playerAnimal"></span> has <span id="playerLives"></span> lives</p>
+        <p>Your enemy <span id="computerAnimal"></span> has <span id="computerLives"></span> lives</p>
 
         <p>
             <button id="btnFire">Fire 🔥</button>
