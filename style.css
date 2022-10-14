@@ -1,0 +1,77 @@
+/* Color Theme Swatches in Hex */
+.Pokéballoon-1-hex { color: #0554F2; }
+.Pokéballoon-2-hex { color: #056CF2; }
+.Pokéballoon-3-hex { color: #F29441; }
+.Pokéballoon-4-hex { color: #F27B35; }
+.Pokéballoon-5-hex { color: #D93030; }
+
+/* Color Theme Swatches in RGBA */
+.Pokéballoon-1-rgba { color: rgba(4, 83, 242, 1); }
+.Pokéballoon-2-rgba { color: rgba(4, 107, 242, 1); }
+.Pokéballoon-3-rgba { color: rgba(242, 147, 65, 1); }
+.Pokéballoon-4-rgba { color: rgba(242, 122, 53, 1); }
+.Pokéballoon-5-rgba { color: rgba(216, 47, 47, 1); }
+
+
+@font-face {
+    font-family: Exo;
+    src: url(./assets/fonts/Exo_2/Exo2-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Metrophobic;    
+    src: url(./assets/fonts/Metrophobic/Metrophobic-Regular.ttf);
+}
+
+@font-face {
+    font-family: Shanti;
+    src: url(./assets/fonts/Shanti/Shanti-Regular.ttf);
+}
+
+body{
+    background-image: radial-gradient(circle at 31.7% -18.3%, #c9e892 0, #d1e287 6.25%, #d8db7c 12.5%, #ded271 18.75%, #e4c865 25%, #e9bd5b 31.25%, #edb151 37.5%, #f0a348 43.75%, #f29441 50%, #f4843d 56.25%, #f5733d 62.5%, #f76341 68.75%, #f85147 75%, #f83f50 81.25%, #f72b5b 87.5%, #f51267 93.75%, #f10074 100%);
+    background-attachment: fixed;
+}
+
+h1{
+    font-family: Exo;
+    border: 3px solid #0554F2 ;
+    border-radius: 25px 25px 25px 25px;
+    padding: 10px;
+    color: black;
+    background-image: radial-gradient(circle at 9.44% -7.92%, #ffffff 0, #d6deef 50%, #788fb8 100%);
+    background-attachment: fixed;    
+    margin-bottom: -3%;
+    z-index: 1;
+}
+
+h2{
+    font-family: Metrophobic;
+}
+
+label{
+    font-family: Shanti;
+}
+
+#select-animal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+#selectionBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    border: 3px outset #D93030;
+    border-radius: 25px 25px 25px 25px;
+    width: 50%;
+    height: 500px;            
+    background: linear-gradient(328deg, rgba(217,48,48,0.6110819327731092) 0%, rgba(242,123,53,0.9500175070028011) 100%);
+}
+
+#btnSelectAnimal{
+    margin: 10px;
+}

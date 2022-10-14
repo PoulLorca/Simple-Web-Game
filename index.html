@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Styles-->
+    <link rel="stylesheet" href="./style.css">
 
     <!--Scripts-->
     <script src="./js/main.js"></script>
@@ -13,23 +15,25 @@
 </head>
 
 <body>
-    <h1>Choose one to start the game! 🔥🌊🌱</h1>
 
 
     <section id="select-animal">
-        <h2>Choose one:</h2>
+        <h1>Choose one to start the game! 🔥🌊🌱</h1>
 
-        <label for="waramel">Waramel</label>
-        <input type="radio" name="animal" id="waramel" value=0>
+        <div id="selectionBox">
+            <h2>Choose one:</h2>
 
-        <label for="shelpecker">Shelpecker</label>
-        <input type="radio" name="animal" id="shelpecker" value=1>
+            <label for="waramel">Waramel</label>
+            <input type="radio" name="animal" id="waramel" value=0>
 
-        <label for="magmeleon">Magmeleon</label>
-        <input type="radio" name="animal" id="magmeleon" value=2>
+            <label for="shelpecker">Shelpecker</label>
+            <input type="radio" name="animal" id="shelpecker" value=1>
 
-        <button id="btnSelectAnimal">Select</button>
+            <label for="magmeleon">Magmeleon</label>
+            <input type="radio" name="animal" id="magmeleon" value=2>
 
+            <button id="btnSelectAnimal">Select</button>
+        </div>
     </section>
 
     <div id="combatStats">
