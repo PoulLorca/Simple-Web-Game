@@ -34,10 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* Animal Selection */
     btnSelectAnimal.addEventListener('click', () => {
-        try {
-            //Display combat stats
-            combatStats.style.display = 'block';
-
+        
+        try {            
             //player's animal
             let indexPlayer = document.querySelector('input[name="animal"]:checked').value;
             human.animal = chooseAnimal(indexPlayer);
@@ -50,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             printAnimals();
             printLives();
+            //Display combat stats
+            combatStats.style.display = 'block';
 
         } catch {
             alert("Choose one!")

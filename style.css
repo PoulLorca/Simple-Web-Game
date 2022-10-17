@@ -1,16 +1,9 @@
 /* Color Theme Swatches in Hex */
-.Pokéballoon-1-hex { color: #0554F2; }
-.Pokéballoon-2-hex { color: #056CF2; }
-.Pokéballoon-3-hex { color: #F29441; }
-.Pokéballoon-4-hex { color: #F27B35; }
-.Pokéballoon-5-hex { color: #D93030; }
-
-/* Color Theme Swatches in RGBA */
-.Pokéballoon-1-rgba { color: rgba(4, 83, 242, 1); }
-.Pokéballoon-2-rgba { color: rgba(4, 107, 242, 1); }
-.Pokéballoon-3-rgba { color: rgba(242, 147, 65, 1); }
-.Pokéballoon-4-rgba { color: rgba(242, 122, 53, 1); }
-.Pokéballoon-5-rgba { color: rgba(216, 47, 47, 1); }
+.Pokéballoon-1-hex { color: #FFFFFF ; }
+.Pokéballoon-2-hex { color: #E1FDC1; }
+.Pokéballoon-3-hex { color: #6FE6C5; }
+.Pokéballoon-4-hex { color: #F19563; }
+.Pokéballoon-5-hex { color: #F15356; }
 
 
 @font-face {
@@ -28,20 +21,23 @@
     src: url(./assets/fonts/Shanti/Shanti-Regular.ttf);
 }
 
-body{
-    background-image: radial-gradient(circle at 31.7% -18.3%, #c9e892 0, #d1e287 6.25%, #d8db7c 12.5%, #ded271 18.75%, #e4c865 25%, #e9bd5b 31.25%, #edb151 37.5%, #f0a348 43.75%, #f29441 50%, #f4843d 56.25%, #f5733d 62.5%, #f76341 68.75%, #f85147 75%, #f83f50 81.25%, #f72b5b 87.5%, #f51267 93.75%, #f10074 100%);
+:root {
+    --form-control-color: #F15356;
+  }
+
+body{    
+    background: linear-gradient(90deg, hsla(21, 84%, 67%, 1) 0%, hsla(359, 85%, 64%, 1) 100%);
     background-attachment: fixed;
 }
 
 h1{
     font-family: Exo;
-    border: 3px solid #0554F2 ;
+    border-bottom: 3px  solid black;
+    border-left: 3px  solid black;    
     border-radius: 25px 25px 25px 25px;
     padding: 10px;
-    color: black;
-    background-image: radial-gradient(circle at 9.44% -7.92%, #ffffff 0, #d6deef 50%, #788fb8 100%);
-    background-attachment: fixed;    
-    margin-bottom: -3%;
+    color: #F15356 ;        
+    background-color: #FFFFFF;
     z-index: 1;
 }
 
@@ -60,18 +56,123 @@ label{
     align-items: center;    
 }
 
-#selectionBox{
+#selectionBox{    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;    
-    border: 3px outset #D93030;
+    border: 3px outset  #F15356 ;
     border-radius: 25px 25px 25px 25px;
+    background-color: #FFFFFF;    
     width: 50%;
-    height: 500px;            
-    background: linear-gradient(328deg, rgba(217,48,48,0.6110819327731092) 0%, rgba(242,123,53,0.9500175070028011) 100%);
+    height: 500px;    
+    line-height: 450%;     
+    transition: all 300ms;       
 }
 
+#contentSelectionBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    margin-top: -50px;
+}
+
+#contentSelectionBox label{
+    font-size: larger;      
+    font-style: bolder;
+}
+
+#selectionBox:hover{
+    background-color: #FFFFFF;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);    
+    font-size: large;
+}
+
+#selectionBox:hover button{
+    background-color: #F15356;        
+    color: white;
+}
+
+input[type="radio"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    /* Remove most all native input styles */
+    appearance: none;
+    /* For iOS < 15 */
+    background-color: var(--form-background);
+    /* Not removed via appearance */
+    margin: 0;
+  
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+  
+    display: grid;
+    place-content: center;
+  }  
+
+  input[type="radio"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    /* Remove most all native input styles */
+    appearance: none;
+    /* For iOS < 15 */
+    background-color: var(--form-background);
+    /* Not removed via appearance */
+    margin: 0;
+  
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+  
+    display: grid;
+    place-content: center;
+
+    border-color: #F15356;
+  }  
+  
+  input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;    
+  }
+
+  input[type="radio"]:checked {
+    border-color: #F15356;
+  }
+  
+  input[type="radio"]:checked::before {
+    transform: scale(1);
+    border-color: #F15356;
+  }
+  
+  input[type="radio"]:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);    
+  }
+
 #btnSelectAnimal{
-    margin: 10px;
+    margin-top: 20px;
+    background-color: #FFFFFF;
+    font-size: larger;
+    color: #F15356;
+    border: none;
+    border-radius: 25px 25px 25px 25px;
+    height: 50px;
+    width: 120px;    
+    cursor: pointer;    
 }
