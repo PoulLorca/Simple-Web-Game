@@ -174,9 +174,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function printAttack(humanAttack, computerAttack, result) {
+        /*
         let text = document.createElement('p');
         text.innerHTML = `You are used ${humanAttack} - Your enemy Used ${computerAttack} - Result: ${result}`
         document.getElementById("message").appendChild(text);
+        */
+
+        let attackUser = document.createElement("p");
+        attackUser.innerHTML = `You are used ${humanAttack}`;
+        document.getElementById("statsBodyUser").appendChild(attackUser);
+
+        let attackComputer = document.createElement("p");
+        attackComputer.innerHTML = `Anemy used ${computerAttack}`;
+        document.getElementById("statsBodyComputer").appendChild(attackComputer);
     }
 
     function disableButtons(state) {
