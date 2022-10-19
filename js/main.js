@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnSelectAnimal.addEventListener('click', () => {
         
         if(indexPlayer) {            
+            
             //player's animal            
             human.animal = chooseAnimal(indexPlayer -1);
             human.lives = 3;
@@ -71,8 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             printAnimals();
             printLives();
+                     
             //Display combat stats
-            combatStats.style.display = 'block';
+            combatStats.style.display = 'flex';
+
+            //go to the bottom
+            window.scrollTo(0, document.body.scrollHeight);
 
         } else {
             alert("Choose one!")
@@ -126,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         printAttack(human.attack, computer.attack, result);
         printLives();
+        window.scrollTo(0, document.body.scrollHeight);
 
         if (human.lives == 0 || computer.lives == 0) {
             if (human.lives > computer.lives) {

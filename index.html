@@ -21,23 +21,23 @@
         <h1>Choose one to start the game! 🔥🌊🌱</h1>
 
         <div id="selectionBox">
-            <h2 id="subtitle">Choose one:</h2>            
+            <h2 id="subtitle">Choose one:</h2>
 
             <div id="contentSelectionBox">
                 <div class="card" id="waramelCard">
                     <span>🔥</span>
-                    <label for="waramel">&nbsp; Waramel</label>                                       
+                    <label for="waramel">&nbsp; Waramel</label>
                     <img src="./assets/img/Waramel.png" alt="Waramel">
                 </div>
                 <div class="card" id="shelpeckerCard">
                     <span>🌊</span>
-                    <label for="shelpecker">Shelpecker</label>       
-                    <img src="./assets/img/Shelpecker.png" alt="Shelpecker">             
+                    <label for="shelpecker">Shelpecker</label>
+                    <img src="./assets/img/Shelpecker.png" alt="Shelpecker">
                 </div>
                 <div class="card" id="magmeleonCard">
                     <span>🌱</span>
-                    <label for="magmeleon">Magmeleon</label>           
-                    <img src="./assets/img/Magmeleon.png" alt="Magmeleon">         
+                    <label for="magmeleon">Magmeleon</label>
+                    <img src="./assets/img/Magmeleon.png" alt="Magmeleon">
                 </div>
             </div>
 
@@ -45,25 +45,30 @@
         </div>
     </section>
 
-    <div id="combatStats">
+    <br>    
+
+    <section id="combatStats">
         <section id="selectAttack">
             <p>Your <span id="playerAnimal"></span> has <span id="playerLives"></span> lives</p>
             <p>Your enemy <span id="computerAnimal"></span> has <span id="computerLives"></span> lives</p>
 
-            <p>
+            <p id="attackButtons">
                 <button id="btnFire">Fire 🔥</button>
                 <button id="btnWater">Water 🌊</button>
                 <button id="btnGrass">Grass 🌱</button>
             </p>
+
+            <section id="message">
+            </section>
+
+            <section id="restart">
+                <button id="btnRestart">Restart</button>
+            </section>
+
+
         </section>
 
-        <section id="message">
-        </section>
-
-        <section id="restart">
-            <button id="btnRestart">Restart</button>
-        </section>
-    </div>
+    </section>
 
 </body>
 
