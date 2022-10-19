@@ -21,17 +21,24 @@
         <h1>Choose one to start the game! 🔥🌊🌱</h1>
 
         <div id="selectionBox">
+            <h2 id="subtitle">Choose one:</h2>            
+
             <div id="contentSelectionBox">
-                <h2>Choose one:</h2>
-
-                <label for="waramel">Waramel 🐢</label>
-                <input type="radio" name="animal" id="waramel" value=0>
-
-                <label for="shelpecker">Shelpecker 🍄</label>
-                <input type="radio" name="animal" id="shelpecker" value=1>
-
-                <label for="magmeleon">Magmeleon 🐗</label>
-                <input type="radio" name="animal" id="magmeleon" value=2>
+                <div class="card" id="waramelCard">
+                    <span>🔥</span>
+                    <label for="waramel">&nbsp; Waramel</label>                                       
+                    <img src="./assets/img/Waramel.png" alt="Waramel">
+                </div>
+                <div class="card" id="shelpeckerCard">
+                    <span>🌊</span>
+                    <label for="shelpecker">Shelpecker</label>       
+                    <img src="./assets/img/Shelpecker.png" alt="Shelpecker">             
+                </div>
+                <div class="card" id="magmeleonCard">
+                    <span>🌱</span>
+                    <label for="magmeleon">Magmeleon</label>           
+                    <img src="./assets/img/Magmeleon.png" alt="Magmeleon">         
+                </div>
             </div>
 
             <button id="btnSelectAnimal">Select</button>

@@ -7,9 +7,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let btnSelectAnimal = document.getElementById('btnSelectAnimal');
 
+    let waramel = document.getElementById("waramelCard");
+    let shelpecker = document.getElementById("shelpeckerCard");
+    let magmeleon = document.getElementById("magmeleonCard");
+
+
     let btnFire = document.getElementById("btnFire");
     let btnWater = document.getElementById("btnWater");
     let btnGrass = document.getElementById("btnGrass");
+
+    let indexPlayer;
 
     let btnRestart = document.getElementById("btnRestart");
 
@@ -27,18 +34,34 @@ document.addEventListener("DOMContentLoaded", () => {
         attack: "",
     }
 
-    /*Default states*/
+    //Default states
     combatStats.style.display = 'none';
 
-    /* --> ACTIONS <-- */    
+    // --> ACTIONS <--   
 
-    /* Animal Selection */
+    // Animal Selection 
+
+    waramel.addEventListener('click',() =>{        
+        waramel.style.border = "1px solid red";        
+        indexPlayer=1;
+    })
+
+    shelpecker.addEventListener('click',()=>{
+        shelpecker.style.border = "1px solid red";
+        indexPlayer=2;
+    })
+
+    magmeleon.addEventListener('click',()=>{
+        magmeleon.style.border = "1px solid red";
+        indexPlayer=3;
+    })
+
+
     btnSelectAnimal.addEventListener('click', () => {
         
-        try {            
-            //player's animal
-            let indexPlayer = document.querySelector('input[name="animal"]:checked').value;
-            human.animal = chooseAnimal(indexPlayer);
+        if(indexPlayer) {            
+            //player's animal            
+            human.animal = chooseAnimal(indexPlayer -1);
             human.lives = 3;
 
             //computer's animal
@@ -51,13 +74,12 @@ document.addEventListener("DOMContentLoaded", () => {
             //Display combat stats
             combatStats.style.display = 'block';
 
-        } catch {
+        } else {
             alert("Choose one!")
         }
     })
 
-
-    /*Select attack*/
+    //Select attack
     btnFire.addEventListener('click', () => {
         human.attack = attacks[0];
         computer.attack = randomAttack();
@@ -78,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
 
-    /*  combat logic  */
+    //  combat logic  
     function Combat() {
         if (!human.animal || !computer.animal) {
             alert("First choose an animal");
@@ -116,13 +138,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    /*Restart */
+    // Restart 
     btnRestart.addEventListener('click', () => {
         location.reload();
     })
 
 
-    /* --> FUNCTIONS <--*/
+    // --> FUNCTIONS <--
     function random(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
@@ -157,5 +179,6 @@ document.addEventListener("DOMContentLoaded", () => {
         btnWater.disabled = state;
         btnGrass.disabled = state;
     }
+    
 
 })
