@@ -35,7 +35,7 @@ body{
     background-attachment: fixed;
 }
 
-h1{
+#select-animal h1{
     font-family: Exo;
     border-bottom: 3px  solid black;
     border-left: 3px  solid black;    
@@ -117,7 +117,7 @@ label{
 
 #selectionBox:hover button{
     background-color: #F15356;        
-    color: white;
+    color: white;    
 }
 
 #btnSelectAnimal{
@@ -157,7 +157,7 @@ label{
     font-size: large;        
     margin: 20px;
     height: 50px;
-    width:  100px;
+    width:  120px;
     border-radius: 25px 25px 25px 25px;
     transition: all 300ms; 
 }
@@ -166,6 +166,7 @@ label{
     background-color: #F15356;        
     color: white;
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);    
+    letter-spacing: 1px;
 }
 
 #restart button{
@@ -182,4 +183,65 @@ label{
     color: white;
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);    
     letter-spacing: 2px;
+}
+
+#combatCards{        
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+.cardCombat{
+    border: 1px solid green;
+    width: 50%;
+    margin: 15px;            
+}
+
+.cardCombat #statsHeader{
+    border-radius: 25px 25px 0px 0px;
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;    
+    border: 3px solid black;
+}
+
+.cardCombat #statsHeader .name{
+    font-family: Metrophobic;
+    width: 75%;
+    text-align: center;
+    color: white;
+}
+
+.cardCombat #statsHeader .lives{
+    font-size:35px;
+    background-color: white;
+    width: 25%;    
+    text-align: center;
+}
+
+#UserStats #statsHeader{
+    background-image: linear-gradient(125deg, #ff6d00 0, #ff5600 16.67%, #ff3a00 33.33%, #f81010 50%, #e8001d 66.67%, #d80025 83.33%, #ca002c 100%);
+} 
+
+#UserStats #statsHeader .lives{
+    border-radius: 0px 25px 0px 0px;
+} 
+
+#ComputerStats #statsHeader{
+    background-image: linear-gradient(240deg, #9a22ff 0, #671fff 25%, #101bf8 50%, #0017dd 75%, #0015c2 100%);
+} 
+
+#ComputerStats #statsHeader .lives{
+    border-radius: 25px 0px 0px 0px;
+} 
+
+.cardCombat #statsBody{
+    border-radius: 0px 0px 25px 25px;    
+    width: 100%;    
+    border: 3px solid black;
+    text-align: center;
+}
+
+#ComputerStats #statsBody{
+    margin-top: -4px;
 }

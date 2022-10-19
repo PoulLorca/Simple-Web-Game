@@ -130,8 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         printAttack(human.attack, computer.attack, result);
-        printLives();
-        window.scrollTo(0, document.body.scrollHeight);
+        printLives();        
 
         if (human.lives == 0 || computer.lives == 0) {
             if (human.lives > computer.lives) {

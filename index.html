@@ -45,13 +45,10 @@
         </div>
     </section>
 
-    <br>    
+    <br>
 
     <section id="combatStats">
         <section id="selectAttack">
-            <p>Your <span id="playerAnimal"></span> has <span id="playerLives"></span> lives</p>
-            <p>Your enemy <span id="computerAnimal"></span> has <span id="computerLives"></span> lives</p>
-
             <p id="attackButtons">
                 <button id="btnFire">Fire 🔥</button>
                 <button id="btnWater">Water 🌊</button>
@@ -61,15 +58,39 @@
             <section id="message">
             </section>
 
+            <div id="combatCards">
+                <section class="cardCombat" id="UserStats">
+                    <div id="statsHeader">
+                        <h2 class="name" id="playerAnimal"></h2> <h1 class="lives" id="playerLives"></h1>
+                    </div>
+                    
+                    <div id="statsBody">
+                        <p>Primer Ataque</p>
+                        <p>Segundo Ataque</p>
+                        <p>Tercer Ataque</p>
+                    </div>
+                </section>
+
+                <section class="cardCombat" id="ComputerStats">
+                    <div id="statsHeader">
+                        <h1 class="lives" id="computerLives"></h1> <h2 class="name" id="computerAnimal"></h2>
+                    </div>
+
+                    <div id="statsBody">
+                        <p>Primer Ataque</p>
+                        <p>Segundo Ataque</p>
+                        <p>Tercer Ataque</p>
+                    </div>
+                </section>
+            </div>
+
             <section id="restart">
                 <button id="btnRestart">Restart</button>
             </section>
 
-
         </section>
 
     </section>
-
 </body>
 
 </html>
