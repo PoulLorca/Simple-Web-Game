@@ -224,7 +224,7 @@ label{
 } 
 
 #UserStats #statsHeader .lives{
-    border-radius: 0px 25px 0px 0px;
+    border-radius: 0px 23px 0px 0px;
 } 
 
 #ComputerStats #statsHeader{
@@ -232,7 +232,7 @@ label{
 } 
 
 #ComputerStats #statsHeader .lives{
-    border-radius: 25px 0px 0px 0px;
+    border-radius: 23px 0px 0px 0px;
 } 
 
 .cardCombat .statsBody{
