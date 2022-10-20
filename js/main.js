@@ -130,7 +130,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         printAttack(human.attack, computer.attack, result);
-        printLives();        
+        printLives();       
+        window.scrollTo(0, document.body.scrollHeight); 
 
         if (human.lives == 0 || computer.lives == 0) {
             if (human.lives > computer.lives) {
@@ -174,11 +175,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function printAttack(humanAttack, computerAttack, result) {
-        /*
-        let text = document.createElement('p');
-        text.innerHTML = `You are used ${humanAttack} - Your enemy Used ${computerAttack} - Result: ${result}`
-        document.getElementById("message").appendChild(text);
-        */
+
+        var resultado = document.getElementById("result");
+        resultado.innerHTML = ` Result: ${result}`        
+        document.getElementById("message").style.border = '3px solid black'        
 
         let attackUser = document.createElement("p");
         attackUser.innerHTML = `You are used ${humanAttack}`;
