@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     let animals = ["Waramel", "Shelpecker", "Magmeleon"];
-    let attacks = ["Fire🔥", "Water🌊", "Grass🌱"];
+    let attacks = ["Fire 🔥", "Water🌊", "Grass🌱"];
 
     let btnSelectAnimal = document.getElementById('btnSelectAnimal');
 
