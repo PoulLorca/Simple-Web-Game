@@ -2,77 +2,172 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    let animals = ["Waramel", "Shelpecker", "Magmeleon"];
-    let attacks = ["Fire 🔥", "Water🌊", "Grass🌱"];
+    const animals = ["Waramel", "Shelpecker", "Magmeleon"];
+    const attacks = ["Fire 🔥", "Water🌊", "Grass🌱"];
 
-    let btnSelectAnimal = document.getElementById('btnSelectAnimal');
+    const btnSelectAnimal = document.getElementById('btnSelectAnimal');
 
-    let waramel = document.getElementById("waramelCard");
-    let shelpecker = document.getElementById("shelpeckerCard");
-    let magmeleon = document.getElementById("magmeleonCard");
+    const ConteinerAttackButtons = document.getElementById("ConteinerAttackButtons");
+ 
+    const btnRestart = document.getElementById("btnRestart");
 
+    const combatStats = document.getElementById("combatStats")
 
-    let btnFire = document.getElementById("btnFire");
-    let btnWater = document.getElementById("btnWater");
-    let btnGrass = document.getElementById("btnGrass");
+    const contentSelectionBox = document.getElementById("contentSelectionBox");
+    
 
-    let indexPlayer;
+    let waramel;
+    let shelpecker;
+    let magmeleon;
 
-    let btnRestart = document.getElementById("btnRestart");
+    let btnFire;
+    let btnWater;
+    let btnGrass;
 
-    let combatStats = document.getElementById("combatStats")
+    let Creatures = [];
+    let SelectionCard;
+    let ButtonAttack;
 
-    let human = {
-        animal: "",
-        lives: 0,
-        attack: "",
+    class Animal {
+        constructor(name, picture, type, lives) {
+            this.name = name;
+            this.picture = picture;
+            this.type = type;
+            this.lives = lives;
+            this.attacks = [];
+        }
     }
 
-    let computer = {
-        animal: "",
-        lives: 0,
-        attack: "",
+    let Waramel = new Animal('waramel', './assets/img/Waramel.png', '🔥', 5);
+    let Shelpecker = new Animal('shelpecker', './assets/img/Shelpecker.png', '🌊', 5);
+    let Magmeleon = new Animal('magmeleon', './assets/img/Magmeleon.png', '🌱', 5);
+
+    Waramel.attacks.push(
+        { icon: '🔥', name: 'Fire' , id: 'btnFire' },
+        { icon: '🌊', name: 'Water' ,id: 'btnWater' },
+        { icon: '🌱',  name: 'Grass' ,id: 'btnGrass' }
+    )
+
+    Shelpecker.attacks.push(
+        { icon: '🔥', name: 'Fire' , id: 'btnFire' },
+        { icon: '🌊', name: 'Water' ,id: 'btnWater' },
+        { icon: '🌱',  name: 'Grass' ,id: 'btnGrass' }
+    )
+
+    Magmeleon.attacks.push(
+        { icon: '🔥', name: 'Fire' , id: 'btnFire' },
+        { icon: '🌊', name: 'Water' ,id: 'btnWater' },
+        { icon: '🌱',  name: 'Grass' ,id: 'btnGrass' }        
+    )
+
+    Creatures.push(Waramel, Shelpecker, Magmeleon);
+
+    Creatures.forEach(creature => {
+        SelectionCard =
+            `
+        <button class="card" id="${creature.name}">
+                    <span>${creature.type}</span>
+                    <label for="${creature.name}">${capitalizeFirstLetter(creature.name)}</label>
+                    <img src="${creature.picture}" alt="${creature.name}">
+                </button>
+        `
+
+        contentSelectionBox.innerHTML += SelectionCard;
+
+        waramel = document.getElementById("waramel");
+        shelpecker = document.getElementById("shelpecker");
+        magmeleon = document.getElementById("magmeleon");
+    });
+
+    class Player {
+        constructor() {
+            this.creature;
+            this.attack = "";
+        }
     }
+
+    let human = new Player();
+    let computer = new Player();
+
 
     //Default states
     combatStats.style.display = 'none';
 
     // --> ACTIONS <--   
 
-    // Animal Selection 
+    // Animal Selection       
 
-    waramel.addEventListener('click',() =>{        
-        waramel.style.border = "1px solid red";        
-        indexPlayer=1;
-    })
+    let btnsCreatures = document.querySelectorAll('.card');
 
-    shelpecker.addEventListener('click',()=>{
-        shelpecker.style.border = "1px solid red";
-        indexPlayer=2;
-    })
+    btnsCreatures.forEach((boton) => {
+        boton.addEventListener('click', (e) => {
+            let path = e.composedPath()[1];            
 
-    magmeleon.addEventListener('click',()=>{
-        magmeleon.style.border = "1px solid red";
-        indexPlayer=3;
+            if (path != contentSelectionBox) {
+                path.style.border = "2px solid red";
+
+                Creatures.forEach(element => {
+
+                    if (element.name == path.id) {
+                        human.creature = element;
+                    }
+                });
+
+            }
+
+        })
     })
 
 
     btnSelectAnimal.addEventListener('click', () => {
+
         
-        if(indexPlayer) {            
-            
-            //player's animal            
-            human.animal = chooseAnimal(indexPlayer -1);
-            human.lives = 3;
+
+        if (human.creature) {
+
+            human.creature.attacks.forEach(element => {                
+                ButtonAttack =
+                `
+                <button class="btnSelAttack" id="${element.id}" value=${element.name}>${element.name} ${element.icon}</button>
+                `
+
+                ConteinerAttackButtons.innerHTML += ButtonAttack;
+
+                btnFire = document.getElementById("btnFire");
+                btnWater = document.getElementById("btnWater");
+                btnGrass = document.getElementById("btnGrass");
+
+            });            
+
+            let btnsAttack= document.querySelectorAll('.btnSelAttack');
+
+            btnsAttack.forEach(element => {
+                element.addEventListener('click',(e)=>{
+
+                    switch(e.target.value){
+                        case 'Fire':
+                            human.attack =attacks[0];
+                            break;
+                        case 'Water':
+                            human.attack = attacks[1];
+                            break;
+                        case 'Grass':
+                            human.attack = attacks[2];
+                            break;
+                    }
+                                        
+                    computer.attack = randomAttack();
+                    Combat()
+                });
+            });                
 
             //computer's animal
-            let indexComputer = random(0, 2);
-            computer.animal = chooseAnimal(indexComputer);
-            computer.lives = 3;
+            let indexComputer = random(0, Creatures.length -1);
+            computer.creature = chooseAnimal(indexComputer);
 
             printAnimals();
             printLives();
-                     
+
             //Display combat stats
             combatStats.style.display = 'flex';
 
@@ -84,30 +179,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-    //Select attack
-    btnFire.addEventListener('click', () => {
-        human.attack = attacks[0];
-        computer.attack = randomAttack();
-        Combat();
-
-    })
-
-    btnWater.addEventListener('click', () => {
-        human.attack = attacks[1];
-        computer.attack = randomAttack();
-        Combat();
-    })
-
-    btnGrass.addEventListener('click', () => {
-        human.attack = attacks[2];
-        computer.attack = randomAttack();
-        Combat();
-    })
-
-
     //  combat logic  
     function Combat() {
-        if (!human.animal || !computer.animal) {
+        if (!human.creature || !computer.creature) {
             alert("First choose an animal");
             return; //Finish execution
         }
@@ -117,24 +191,24 @@ document.addEventListener("DOMContentLoaded", () => {
             result = "Draw 😐"
         } else if (human.attack == attacks[0] && computer.attack == attacks[2]) {
             result = "You win 👍"
-            computer.lives -= 1;
+            computer.creature.lives -= 1;
         } else if (human.attack == attacks[1] && computer.attack == attacks[0]) {
             result = "You win 👍"
-            computer.lives -= 1;
+            computer.creature.lives -= 1;
         } else if (human.attack == attacks[2] && computer.attack == attacks[1]) {
             result = "You win 👍"
-            computer.lives -= 1;
+            computer.creature.lives -= 1;
         } else {
             result = "You lose 👎"
-            human.lives -= 1;
+            human.creature.lives -= 1;
         }
 
         printAttack(human.attack, computer.attack, result);
-        printLives();       
-        window.scrollTo(0, document.body.scrollHeight); 
+        printLives();
+        window.scrollTo(0, document.body.scrollHeight);
 
-        if (human.lives == 0 || computer.lives == 0) {
-            if (human.lives > computer.lives) {
+        if (human.creature.lives == 0 || computer.creature.lives == 0) {
+            if (human.creature.lives > computer.creature.lives) {
                 alert("Congrats You win 🎉")
             } else {
                 alert("Sorry you lose 👻")
@@ -156,29 +230,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function chooseAnimal(index) {
-        return animals[index];
+        return Creatures[index];
     }
 
     function randomAttack() {
-        let indexComputer = random(0, 2);
+        let indexComputer = random(0, Creatures.length -1);
         return attacks[indexComputer];
     }
 
     function printAnimals() {
-        document.getElementById("playerAnimal").innerHTML = human.animal;
-        document.getElementById("computerAnimal").innerHTML = computer.animal;
+        document.getElementById("playerAnimal").innerHTML = capitalizeFirstLetter(human.creature.name);
+        document.getElementById("computerAnimal").innerHTML = capitalizeFirstLetter(computer.creature.name);
     }
 
     function printLives() {
-        document.getElementById("playerLives").innerHTML = human.lives;
-        document.getElementById("computerLives").innerHTML = computer.lives;
+        document.getElementById("playerLives").innerHTML = human.creature.lives;
+        document.getElementById("computerLives").innerHTML = computer.creature.lives;
     }
 
     function printAttack(humanAttack, computerAttack, result) {
 
         var resultado = document.getElementById("result");
-        resultado.innerHTML = ` Result: ${result}`        
-        document.getElementById("message").style.border = '3px solid black'        
+        resultado.innerHTML = ` Result: ${result}`
+        document.getElementById("message").style.border = '3px solid black'
 
         let attackUser = document.createElement("p");
         attackUser.innerHTML = `You are used ${humanAttack}`;
@@ -194,6 +268,12 @@ document.addEventListener("DOMContentLoaded", () => {
         btnWater.disabled = state;
         btnGrass.disabled = state;
     }
-    
+
+    function capitalizeFirstLetter(str) {
+        const capitalized = str.charAt(0).toUpperCase() + str.slice(1);
+
+        return capitalized;
+    }
+
 
 })
